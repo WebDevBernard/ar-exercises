@@ -18,3 +18,16 @@ puts "----------"
 # 2. Add the following code directly inside the Employee model (class): `belongs_to :store`
 # 3. Add some data into employees. Here's an example of one (note how it differs from how you create stores): `@store1.employees.create(first_name: "Khurram", last_name: "Virani", hourly_rate: 60)`
 # 4. Go ahead and create some more employees using the create method. You can do this by making multiple calls to create (like you have before.) No need to assign the employees to variables though. Create them through the `@store#` instance variables that you defined in previous exercises. Create a bunch under `@store1` (Burnaby) and `@store2` (Richmond). Eg: `@store1.employees.create(...)
+
+class Store
+  has_many :employees
+end
+
+class Employee
+  belongs_to :store
+end
+
+@store1.employees.create(first_name: "Khurram", last_name: "Virani", hourly_rate: 60)
+@store1.employees.create(first_name: "me", last_name: "not_you", hourly_rate: 50)
+@store1.employees.create(first_name: "you", last_name: "not_me", hourly_rate: 8)
+@store2.employees.create(first_name: "fake", last_name: "guy", hourly_rate: 300000)
